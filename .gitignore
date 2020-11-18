@@ -1,0 +1,13 @@
+bower_components/
+build/
+node_modules/
+vendor/
+!.idea/
+.idea/inspectionProfiles/
+.idea/deployment.xml
+.idea/workspace.xml
+.vagrant/
+.vscode/
+Thumbs.db
+*-error.log
+.DS_Store

@@ -1,0 +1,17 @@
+# exclude everything
+*
+
+# include postman-sdk
+!packages/postman-sdk/
+packages/postman-sdk/node_modules/
+
+# include sync-client
+!packages/sync-client/
+packages/sync-client/node_modules/
+packages/sync-client/ts-node.json
+
+# include root dependecies
+!build.sh
+!lerna.json
+!package.json
+!yarn.lock

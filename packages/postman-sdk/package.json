@@ -1,0 +1,8 @@
+{
+  "name": "@postman-sync/postman-sdk",
+  "version": "0.0.0",
+  "scripts": {
+    "eslint": "eslint --ext .ts .",
+    "eslint:fix": "eslint --ext .ts --fix ."
+  }
+}
