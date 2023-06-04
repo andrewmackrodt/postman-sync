@@ -1,7 +1,7 @@
 import axios, { Method } from 'axios'
 
 interface RequestOptions {
-    data?: Record<string, any>
+    data?: Record<string, unknown>
     params?: Record<string, string>
 }
 
@@ -13,7 +13,8 @@ export class Client {
         this.apiKey = apiKey
     }
 
-    public async request<T>(method: Method, path: string, options?: RequestOptions): Promise<T> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    public async request<T = any>(method: Method, path: string, options?: RequestOptions): Promise<T> {
         const response = await axios.request({
             baseURL: Client.API_ROOT,
             url: path,

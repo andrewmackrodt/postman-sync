@@ -1,4 +1,4 @@
-import { Client } from './Client'
+import { Client } from './Client.js'
 
 export interface EnvironmentValue {
     key: string
@@ -37,7 +37,7 @@ export class Environments {
     }
 
     public async create(data: CreateEnvironmentRequest, workspaceId?: string): Promise<Environment> {
-        const response = await this.client.request<any>('post', 'environments', {
+        const response = await this.client.request('post', 'environments', {
             params: workspaceId ? { workspace: workspaceId } : undefined,
             data: {
                 environment: data,
@@ -55,13 +55,13 @@ export class Environments {
             ? environment.uid
             : environment
 
-        const response = await this.client.request<any>('get', `environments/${uid}`)
+        const response = await this.client.request('get', `environments/${uid}`)
 
         return response.environment
     }
 
     public async list(): Promise<EnvironmentListItem[]> {
-        const response = await this.client.request<any>('get', 'environments')
+        const response = await this.client.request('get', 'environments')
 
         return response.environments
     }

@@ -1,6 +1,6 @@
-import { Client } from './Client'
-import { CollectionListItem } from './Collections'
-import { EnvironmentListItem } from './Environments'
+import { Client } from './Client.js'
+import { CollectionListItem } from './Collections.js'
+import { EnvironmentListItem } from './Environments.js'
 
 export interface Workspace {
     id: string
@@ -31,7 +31,7 @@ export class Workspaces {
     }
 
     public async create(data: CreateWorkspaceRequest): Promise<Workspace> {
-        const response = await this.client.request<any>('post', 'workspaces', {
+        const response = await this.client.request('post', 'workspaces', {
             data: {
                 workspace: data,
             },
@@ -48,13 +48,13 @@ export class Workspaces {
             ? workspace.id
             : workspace
 
-        const response = await this.client.request<any>('get', `workspaces/${uid}`)
+        const response = await this.client.request('get', `workspaces/${uid}`)
 
         return response.workspace
     }
 
     public async list(): Promise<WorkspaceListItem[]> {
-        const response = await this.client.request<any>('get', 'workspaces')
+        const response = await this.client.request('get', 'workspaces')
 
         return response.workspaces
     }

@@ -1,4 +1,5 @@
-import { Client } from './Client'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Client } from './Client.js'
 
 export interface CollectionFolder {
     name: string
@@ -96,7 +97,7 @@ export class Collections {
     }
 
     public async create(data: CreateCollectionRequest, workspaceId?: string): Promise<Collection> {
-        const response = await this.client.request<any>('post', 'collections', {
+        const response = await this.client.request('post', 'collections', {
             params: workspaceId ? { workspace: workspaceId } : undefined,
             data: {
                 collection: data,
@@ -114,13 +115,13 @@ export class Collections {
             ? collection.uid
             : collection
 
-        const response = await this.client.request<any>('get', `collections/${uid}`)
+        const response = await this.client.request('get', `collections/${uid}`)
 
         return response.collection
     }
 
     public async list(): Promise<CollectionListItem[]> {
-        const response = await this.client.request<any>('get', 'collections')
+        const response = await this.client.request('get', 'collections')
 
         return response.collections
     }

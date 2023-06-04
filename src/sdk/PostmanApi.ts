@@ -1,7 +1,7 @@
-import { Client } from './Client'
-import { Collections } from './Collections'
-import { Environments } from './Environments'
-import { Workspaces } from './Workspaces'
+import { Client } from './Client.js'
+import { Collections } from './Collections.js'
+import { Environments } from './Environments.js'
+import { Workspaces } from './Workspaces.js'
 
 export class PostmanApi {
     protected readonly client: Client
